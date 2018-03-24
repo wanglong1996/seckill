@@ -3,7 +3,8 @@
  */
 package org.seckill.entity;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 public class Seckill {
 	private long seckillId;
