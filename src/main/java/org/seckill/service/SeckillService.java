@@ -1,5 +1,5 @@
 /**
- * created by wanglong on 2018年3月24日 下午7:20:15
+ * created by wangLong on 2018年3月24日 下午7:20:15
  */
 package org.seckill.service;
 
@@ -30,14 +30,14 @@ public interface SeckillService {
 	 * @param seckill
 	 * @return
 	 */
-	Seckill getById(long seckill);
+	Seckill getById(Long seckill);
 	
 	/**
 	 * 秒杀开启是秒杀接口地址
 	 * 否则输出系统时间和秒杀时间
 	 * @param seckillId
 	 */
-	Exposer exportSeckillUrl(long seckillId);
+	Exposer exportSeckillUrl(Long seckillId);
 	
 	/**
 	 * 执行秒杀操作
@@ -45,7 +45,7 @@ public interface SeckillService {
 	 * @param userPhone
 	 * @param md5
 	 */
-	SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) 
+	SeckillExecution executeSeckill(Long seckillId, Long userPhone, String md5) 
 			throws SeckillException, RepeatKillException, SeckillCloseException;//写前面一个异常就行了
 	
 }

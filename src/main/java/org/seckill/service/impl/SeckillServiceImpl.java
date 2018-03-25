@@ -1,5 +1,5 @@
 /**
- * created by wanglong on 2018年3月24日 下午8:21:36
+ * created by wangLong on 2018年3月24日 下午8:21:36
  */
 package org.seckill.service.impl;
 
@@ -48,17 +48,17 @@ public class SeckillServiceImpl implements SeckillService {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.seckill.service.SeckillService#getById(long)
+	 * @see org.seckill.service.SeckillService#getById(Long)
 	 */
-	public Seckill getById(long seckillId) {
+	public Seckill getById(Long seckillId) {
 		// TODO Auto-generated method stub
 		return seckillDao.queryById(seckillId);
 	}
 
 	/* (non-Javadoc)
-	 * @see org.seckill.service.SeckillService#exportSeckillUrl(long)
+	 * @see org.seckill.service.SeckillService#exportSeckillUrl(Long)
 	 */
-	public Exposer exportSeckillUrl(long seckillId) {
+	public Exposer exportSeckillUrl(Long seckillId) {
 		Seckill seckill = seckillDao.queryById(seckillId);
 		if(seckill == null) {
 			return new Exposer(false, seckillId);
@@ -75,7 +75,7 @@ public class SeckillServiceImpl implements SeckillService {
 		return new Exposer(true, md5,seckillId);
 	}
 	
-	private String getMD5(long seckillId) {
+	private String getMD5(Long seckillId) {
 		
 		String base = seckillId+slat;
 		String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
@@ -84,7 +84,7 @@ public class SeckillServiceImpl implements SeckillService {
 	
 
 	/* (non-Javadoc)
-	 * @see org.seckill.service.SeckillService#executeSeckill(long, long, java.lang.String)
+	 * @see org.seckill.service.SeckillService#executeSeckill(Long, Long, java.lang.String)
 	 */
 	@Transactional
 	/**
@@ -94,7 +94,7 @@ public class SeckillServiceImpl implements SeckillService {
 	 * 不要穿插其他网络操作rpc/http
 	 * 3:不是所有方法需要事物，只有一条修改操作就不需要，只读也不要
 	 */
-	public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
+	public SeckillExecution executeSeckill(Long seckillId, Long userPhone, String md5)
 			throws SeckillException, RepeatKillException, SeckillCloseException {
 		// TODO Auto-generated method stub
 		if(md5==null || !md5.equals(getMD5(seckillId))) {
